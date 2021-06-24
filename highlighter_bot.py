@@ -30,7 +30,7 @@ browser["apobec"] = "yes"
 #browser.form.print_summary() # for debugging purposes
 #browser.launch_browser()	# for debugging purposes
 response = browser.submit_selected()
-print('response:\n', upload.text)
+print('response:\n', response.text)
 
 # save the PNG and TXT results
 page = browser.get_current_page()
