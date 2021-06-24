@@ -17,13 +17,13 @@ if not os.path.isfile(alignmentFilePath):
 if not os.path.isfile(treeFilePath):
   sys.exit("File not found: " + treeFilepath)
 
-browser["alignmentFile"] = alignmentFilePath
+#browser["alignmentFile"] = alignmentFilePath # this syntax was just used for testing and will be removed
+#browser["uploadTree"] = treeFilePath         # this syntax was just used for testing and will be removed
 browser.form.set("alignmentFile", alignmentFilePath)
+browser.form.set("uploadTree", treeFilePath)
 browser["choice"] = "mismatches"
 browser["sort"] = "tree"
 browser["treeType"] = "upload"
-browser["uploadTree"] = treeFilePath
-browser.form.set("uploadTree", treeFilePath)
 browser["tw_multiplier"] = "7"
 browser["apobec"] = "yes"
 
