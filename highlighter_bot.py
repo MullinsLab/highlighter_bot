@@ -6,7 +6,7 @@ url = "https://www.hiv.lanl.gov/content/sequence/HIGHLIGHT/highlighter_top.html?
 browser.open(url) # error handling: check for <Response [200]>
 browser.select_form('form[action="/cgi-bin/HIGHLIGHT/highlighter.cgi"]')
 
-path = os.cwd()
+path = os.getcwd()
 cur_seq_name = "V703_2539_070_GP_NT_collapsed_by_timepoint" # sample sequence for testing purposes
 alignmentFilePath = os.path.join(path, cur_seq_name + '.fasta')
 treeFilePath = os.path.join(path, cur_seq_name + '.phy_phyml_tree.txt_newick.tre')
