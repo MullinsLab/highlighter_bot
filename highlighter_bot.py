@@ -3,7 +3,7 @@ import werkzeug
 werkzeug.cached_property = werkzeug.utils.cached_property
 from robobrowser import RoboBrowser
 
-browser = RoboBrowser(history=True)
+browser = RoboBrowser(history=True, parser='lxml')
 url = "https://www.hiv.lanl.gov/content/sequence/HIGHLIGHT/highlighter_top.html?choice=mismatches"
 download_url = "https://www.hiv.lanl.gov"
 #download_referer = "https://www.hiv.lanl.gov/cgi-bin/HIGHLIGHT/highlighter.cgi"
