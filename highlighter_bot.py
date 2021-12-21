@@ -32,7 +32,7 @@ for file in files:
         sys.exit("File not found: " + alignmentFilePath)
 
     if not os.path.isfile(treeFilePath):
-        sys.exit("File not found: " + treeFilepath)
+        sys.exit("File not found: " + treeFilePath)
 
     if os.path.isfile(save_png):
         print('Skipping {}, PNG already exists'.format(cur_seq_name))
