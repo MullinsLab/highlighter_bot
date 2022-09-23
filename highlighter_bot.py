@@ -1,8 +1,13 @@
-import re, os, sys, wget, glob, time
+import re, os, sys, wget, glob, time, argparse
 import werkzeug
 werkzeug.cached_property = werkzeug.utils.cached_property
 import shutil
 from robobrowser import RoboBrowser
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-a", "--aminoacid", help="flag for amino acid sequence", action="store_true")
+args = parser.parse_args()
+aaflag = args.aminoacid
 
 browser = RoboBrowser(history=True, parser='lxml')
 url = "https://www.hiv.lanl.gov/content/sequence/HIGHLIGHT/highlighter_top.html?choice=mismatches"
@@ -62,8 +67,12 @@ for file in files:
     form["sort"].value = "tree"
     form["treeType"].value = "upload"
     form["tw_multiplier"].value = "7"
-    form["apobec"].value = "yes"
     form["submit"].value = ""  ### There are 2 input type="submit", we need the second one
+    if aaflag is True:
+    	form["base"].value = "aa"
+    	form["glyco"].value = "no" # or "no" if glycosolation information is not desired
+    else:
+    	form["apobec"].value = "yes"
 
     browser.session.headers['Referer'] = url
 
@@ -102,7 +111,7 @@ for file in files:
     
     # please be courteous to the server's resources and do not reduce the sleep time between jobs below 60 seconds
     if filenum != num_files:
-        time.sleep(90)
+        time.sleep(60)
 
 ft = int(time.time() - full_time)
 print('All done! Completed in {} seconds. Exiting.'.format(ft))

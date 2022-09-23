@@ -11,5 +11,5 @@ pip3 install wget
 ## Usage
 In a directory containing pairs of FASTA files and Newick .tre files, run:
 ```
-python3 highlighter_bot.py
+python3 highlighter_bot.py [-a (if amino acid sequences)]
 ```
